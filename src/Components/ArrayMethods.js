@@ -456,3 +456,121 @@ const removeFalsyValues = (input) => {
 };
 
 // console.log(removeFalsyValues([NaN, 0, 15, false, -22, '', undefined, 47, null]));
+
+//26. Write a JavaScript program to find a pair of elements (indices of the two numbers) in a given array whose sum equals a specific target number.
+
+const findPair=(input,target)=>{
+    for(let i=0;i<input.length;i++){
+        if((input[i]+input[i+1])===target){
+                return [i,i+1]
+        }
+        else{
+            return "pair not found"
+        }
+    }
+    
+}
+// console.log(findPair([10,20,10,0,50,60,70],130 ))
+
+//27. Write a JavaScript function to retrieve the value of a given property from all elements in an array.
+const retrieve = (input) => {
+    let newArray = [];
+
+    for (let i = 0; i < input.length; i++) {
+        if (typeof input[i] === "number" && !isNaN(input[i]) && input[i] !== 0) {
+            newArray.push(input[i]);
+        }
+    }
+
+    return newArray;
+};
+
+// console.log(retrieve([NaN, 0, 15, false, -22, '', undefined, 47, null]));
+
+//29. Write a JavaScript function to fill an array with values (numeric, string with one character) within supplied bounds.
+
+const num_string_range=(a,b,span)=>{
+    let alphabets=[]
+    for (let i = 'a'.charCodeAt(0); i <= 'z'.charCodeAt(0); i++) {
+        alphabets.push(String.fromCharCode(i))
+        
+    }
+    let newArray=[]
+    for(let i=0;i<alphabets.length;i+=span){
+        newArray.push(alphabets[i])
+    }
+    return newArray
+
+}
+// console.log(num_string_range('a', "z", 2));
+
+//30. Write a JavaScript function that merges two arrays and removes all duplicate elements.
+
+const merge=(a,b)=>{
+    return[...new Set( [...a,...b])]
+
+}
+// console.log(merge([1,2,3],[2,930,1]))
+
+//31. Write a JavaScript function to remove a specific element from an array.
+const remove_element=(array,element)=>{
+    for(let i=0;i<array.length;i++){
+        if(array[i]===element){
+            return array.filter((a)=>{
+                return a!==element
+            })
+        }
+    }
+
+}
+//using reduce
+// const removeElementReduce = (array, element) => {
+//     return array.reduce((acc, current) => {
+//         if (current !== element) {
+//             acc.push(current);
+//         }
+//         return acc;
+//     }, []);
+// };
+
+//using splice
+// const array = [2, 5, 9, 6];
+// const elementToRemove = 5;
+
+// const index = array.indexOf(elementToRemove);
+
+// if (index !== -1) {
+//     // Remove the element at the specified index
+//     array.splice(index, 1);
+// }
+
+// console.log(array); // Output: [2, 9, 6]
+
+
+// console.log(remove_element([2, 5, 9, 6], 5))
+
+//32. Write a JavaScript function to find an array containing a specific element.
+const contains=(arr,b)=>{
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]===b){
+            return [true]
+        }
+    }
+    return [false]
+}
+
+// console.log(contains([2,5,9,6,89], 5));
+
+//34. Write a JavaScript function to get the nth largest element from an unsorted array.
+const nthlargest=(array,n)=>{
+    let newArray=array.sort((a,b)=>a-b)
+    console.log(newArray)
+        return newArray[n-1]
+    }
+console.log(nthlargest([ 43, 56, 23, 89, 88, 90, 99, 652], 1));
+
+
+
+
+
+
