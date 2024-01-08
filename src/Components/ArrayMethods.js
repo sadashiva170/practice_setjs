@@ -562,15 +562,111 @@ const contains=(arr,b)=>{
 // console.log(contains([2,5,9,6,89], 5));
 
 //34. Write a JavaScript function to get the nth largest element from an unsorted array.
-const nthlargest=(array,n)=>{
-    let newArray=array.sort((a,b)=>a-b)
-    console.log(newArray)
-        return newArray[n-1]
+const nthLargest = (array, n) => {
+    if (n > 0 && n <= array.length) {
+        const sortedArray = array.slice().sort((a, b) => b - a); // Create a sorted copy by slice and then  in descending order
+        console.log(sortedArray)
+        return sortedArray[n - 1];
+    } else {
+        return "Invalid value of n";
     }
-console.log(nthlargest([ 43, 56, 23, 89, 88, 90, 99, 652], 1));
+};
 
+// console.log(nthLargest([43, 56, 23, 89, 88, 90, 99, 652], 3));
 
+//35. Write a JavaScript function to get random items from an array.
 
+const random_element=(input)=>{
+   let index=Math.floor((Math.random()*input.length))
+   return input[index]
+}
+// console.log(random_element([1,2,3,4,5,6,7,8]))
 
+//36. Write a JavaScript function to create a specified number of elements with a pre-filled numeric value array.
+const array_filled=(input,length)=>{
+    let array=[]
+    for(let i=0;i<input;i++){
+        array.push(length)
+    }
+    return array
+}
+// console.log(array_filled(6, 0));
 
+//37. Write a JavaScript function to create a specified number of elements with a pre-filled string value array.
+const arrayfilled=(input,string)=>{
+    let array=[]
+    for(let i=0;i<input;i++){
+        array.push(string)
+    }
+    return array
+}
+// console.log(arrayfilled(3, 'default value'));
+
+//38. Write a JavaScript function to move an array element from one position to another.
+const move=(input,index1,index2)=>{
+    input[index1]=input[index2]
+    return input
+
+}
+// console.log(move([10, 20, 30, 40, 50], 0, 2));
+
+//39. Write a JavaScript function to filter false, null, 0 and blank values from an array.
+const filter_array_values=(input)=>{
+    let array=[]
+    for(let i=0;i<input.length;i++){
+        if( input[i]!==0 && input[i]!==null && input[i]!=="" && input[i]!==false ){
+            array.push(input[i])
+        }
+    }
+    return array
+}
+// console.log(filter_array_values([58, '', 'abcd', true, null, false, 0]));
+
+// Write a JavaScript function to generate an array of integer numbers, increasing one from the starting position, of a specified length.
+const array_range=(a,b)=>{
+    let array=[]
+    for(let i=a;i<=b;i++){
+        array.push(i)
+    }
+    return array
+}
+// console.log(array_range(1, 4));
+
+ 
+
+// console.log(unzip([['a', 1, true], ['b', 2, false]]));
+// console.log(unzip([['a', 1, true], ['b', 2]]));
+
+//45. Write a JavaScript program to find all the unique values in a set of numbers.
+const uniqueNumbers = (array) => {
+    return [...new Set(array)];
+};
+
+// console.log(uniqueNumbers([1, 2, 2, 3, 4, 4, 5]));
+
+//46. Write a JavaScript program to generate all permutations of an array's elements (including duplicates).
+
+const permutations = (input) => {
+    const result = [];
+
+    const permute = (arr, current = []) => {
+        if (arr.length === 0) {
+            result.push([...current]);
+            return;
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+            const remaining = [...arr.slice(0, i), ...arr.slice(i + 1)];
+            current.push(arr[i]);
+            permute(remaining, current);
+            current.pop();
+        }
+    };
+
+    permute(input);
+
+    return result;
+};
+
+console.log(permutations([1, 33, 5]));
 
