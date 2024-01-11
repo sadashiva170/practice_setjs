@@ -19,6 +19,7 @@ import HookUseeffect from './Components/HookUseeffect';
 import HookRunOnce from './Components/HookRunOnce';
 import HookInterval from './Components/HookInterval';
 import Color from './Components/Color';
+import HookRandom from './Components/HookRandom';
 
 // export const Greetings=()=>{
 //   return <h1> Hi friends</h1>
@@ -54,10 +55,11 @@ function App() {
     {/* <HookComponent/> */}
     {/* <HookCounter/> */}
     {/* <HookArray/> */}
-    <HookUseeffect/>
+    {/* <HookUseeffect/> */}
     {/* <HookRunOnce/> */}
     {/* <HookInterval/> */}
-    
+
+    <HookRandom/>
     {/* <Color/> */}
     </div>
   );

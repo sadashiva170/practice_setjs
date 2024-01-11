@@ -5,7 +5,7 @@ function HookArray() {
 
   // add an item to the array
   const addItem = () => {
-    setMyArray([...myArray,"hi shiva"]);
+    setMyArray(["hi shiva","hello"]);
   }
 
   return (
